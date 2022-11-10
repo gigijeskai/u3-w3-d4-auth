@@ -13,43 +13,46 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { PostDetailsPage } from './pages/post-details.page';
 import { UsersPage } from './pages/users.page';
 import { UsersDetailsPage } from './pages/users-details.page';
+import { LoginComponent } from './auth/login.component';
+import { RegistrazioneComponent } from './auth/registrazione.component';
+import { AuthModule } from './auth/auth.module';
 
-const routes:Route[] = [
+const routes: Route[] = [
   {
-    path:"",
-    component:HomePage
+    path: '',
+    component: HomePage,
   },
   {
-    path:"active-posts",
-    component:ActivePostsPage
+    path: 'active-posts',
+    component: ActivePostsPage,
   },
   {
-    path:"inactive-posts",
-    component:InactivePostsPage
+    path: 'inactive-posts',
+    component: InactivePostsPage,
   },
   {
-    path:"active-posts/:id",
-    component:PostDetailsPage
+    path: 'active-posts/:id',
+    component: PostDetailsPage,
   },
   {
-    path:"inactive-posts/:id",
-    component:PostDetailsPage
+    path: 'inactive-posts/:id',
+    component: PostDetailsPage,
   },
   {
-    path:"users",
-    component:UsersPage,
-    children:[
+    path: 'users',
+    component: UsersPage,
+    children: [
       {
-        path:":id",
-        component:UsersDetailsPage
-      }
-    ]
+        path: ':id',
+        component: UsersDetailsPage,
+      },
+    ],
   },
   {
-    path:"**",
-    redirectTo:""
-  }
-]
+    path: '**',
+    redirectTo: '',
+  },
+];
 
 @NgModule({
   declarations: [
@@ -63,13 +66,10 @@ const routes:Route[] = [
     HighlightDirective,
     PostDetailsPage,
     UsersPage,
-    UsersDetailsPage
+    UsersDetailsPage,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes), AuthModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
