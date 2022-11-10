@@ -3,9 +3,24 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "auth-json-server": {
+    "epicode-esercizi": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        
+        "@schematics/angular:component": {
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "style": "scss",
+          "skipTests": true,
+          "flat": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +28,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/auth-json-server",
+            "outputPath": "dist/epicode-esercizi",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +38,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -64,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "auth-json-server:build:production"
+              "browserTarget": "epicode-esercizi:build:production"
             },
             "development": {
-              "browserTarget": "auth-json-server:build:development"
+              "browserTarget": "epicode-esercizi:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "auth-json-server:build"
+            "browserTarget": "epicode-esercizi:build"
           }
         },
         "test": {
@@ -90,12 +105,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
-  }
+  },
+  "defaultProject": "epicode-esercizi"
 }
